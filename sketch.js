@@ -8,6 +8,7 @@ let z = 0;
 
 function preload(){
     water = loadImage('images/water.png')
+    cloud = loadImage('images/cloud.png')
 }
 
 function setup(){
@@ -24,7 +25,8 @@ function draw(){
     }
     for(let c=0; c<drops.length; c++){
         drops[c].showRipple();
-    }
+    }  
+    image(cloud, mouseX, mouseY-400, 200, 90)
 }
 
 function mousePressed(){
@@ -33,6 +35,7 @@ function mousePressed(){
     for(let c=0; c<drops.length; c++){
         drops[c].clicked(mouseX, mouseY);
     }
+    
 }
 
 class Ripple{
@@ -106,12 +109,12 @@ class Drop{
     
     showRipple(){
         //if the water droplet reaches a certain point on the screen, it will ripple
-        if(this.y > windowHeight/2 - 20){
-            ellipse(this.x, windowHeight/2, 10, 10/3);
-            ellipse(this.x, windowHeight/2, 30, 30/3);
-            ellipse(this.x, windowHeight/2, 50, 50/3);
-            ellipse(this.x, windowHeight/2, 70, 70/3);
-            ellipse(this.x, windowHeight/2, 90, 90/3);
+        if(this.y > 7*windowHeight/8 - 20){
+            ellipse(this.x, 7*windowHeight/8, 10, 10/3);
+            ellipse(this.x, 7*windowHeight/8, 30, 30/3);
+            ellipse(this.x, 7*windowHeight/8, 50, 50/3);
+            ellipse(this.x, 7*windowHeight/8, 70, 70/3);
+            ellipse(this.x, 7*windowHeight/8, 90, 90/3);
             /*let r =  new Ripple(this.x, this.y, this.w, this.h);
             ripples.push(r);
             for(let i=0; i<ripples.length; i++){
