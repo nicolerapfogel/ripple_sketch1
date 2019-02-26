@@ -19,7 +19,11 @@ function setup(){
 }
 
 function draw(){
-    background(130, 222, 237);
+    if(keyIsPressed){
+        background(0);
+    }else{
+        background(130, 222, 237);
+    }
     for(let c=0; c<drops.length; c++){
         drops[c].move();
     }
@@ -109,6 +113,11 @@ class Drop{
     
     showRipple(){
         //if the water droplet reaches a certain point on the screen, it will ripple
+        if(keyIsPressed){
+            stroke(random(0, 255), random(0, 255), random(0, 255));
+        }else{
+            stroke(124, 184, 193);
+        }
         if(this.y > 7*windowHeight/8 - 20){
             ellipse(this.x, 7*windowHeight/8, 10, 10/3);
             ellipse(this.x, 7*windowHeight/8, 30, 30/3);
