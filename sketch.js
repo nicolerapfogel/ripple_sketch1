@@ -20,6 +20,7 @@ function setup(){
 
 function draw(){
     if(keyIsPressed){
+        console.log("pressed!!!!!!!xxxxxxxx")
         background(0);
     }else{
         background(130, 222, 237);
@@ -114,6 +115,7 @@ class Drop{
     showRipple(){
         //if the water droplet reaches a certain point on the screen, it will ripple
         if(keyIsPressed){
+            console.log("pressed!!!!!!!yyyyyyyyyyy")
             stroke(random(0, 255), random(0, 255), random(0, 255));
         }else{
             stroke(124, 184, 193);
